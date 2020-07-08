@@ -93,13 +93,12 @@ router.get('/changeowner', async (req,res,next)=>{
     res.render('changeowner', {data:resultData})
 })
 
-router.post('changeowner',async (req,res,next)=>{
+router.post('/changeowner', async (req,res,next)=>{
  console.log(req.body.KEY)
-    var KEY = req.body.KEY
-    var owner = req.body.owner
-
-    await queryUtil.change_Owner(KEY, owner)
-     res.redirect('/')
+    var KEY =  req.body.KEY
+    var owner =  req.body.owner
  
+    await queryUtil.changeOwner(KEY, owner)
+    res.redirect('/')
 })
 module.exports = router;
